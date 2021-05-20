@@ -13,13 +13,38 @@
         android:layout_height="106dp">
     </ImageView>
 
-    <TextView
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="30dp"
+
+
+    <LinearLayout
         android:background="@drawable/main_page_about_company"
-        android:layout_width="338dp"
+        android:layout_marginStart="33.5dp"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical"
+        android:layout_width="345dp"
         android:layout_height="452dp">
-    </TextView>
+
+        <TextView
+            android:text="@string/TV_about_company_1"
+            android:textSize="13.3sp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="9dp"
+            android:layout_width="327dp"
+            android:layout_height="114dp">
+        </TextView>
+        <TextView
+            android:layout_marginTop="14dp"
+            android:layout_marginStart="22.5dp"
+            android:text="@string/TV_about_company_2"
+            android:textSize="13.3sp"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:layout_width="300dp"
+            android:layout_height="76dp">
+        </TextView>
+
+    </LinearLayout>
 
 
 
