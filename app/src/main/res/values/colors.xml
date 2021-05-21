@@ -10,4 +10,5 @@
 
     <color name="MainAppColor">#C0B762</color>
     <color name="MainPageAboutCompany">#ADD8E6</color>
+    <color name="NavigationBarColor">#B4D3CA</color>
 </resources>
