@@ -1,74 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@color/MainAppColor"
-    android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/LogoCompanyID"
+    <ImageButton
+        android:id="@+id/CatalogLogo"
+        android:onClick="ONclick_button_LOGO"
+        android:background="@null"
+        android:layout_marginStart="150.5dp"
         android:layout_marginTop="20dp"
-        android:layout_marginStart="124dp"
-        android:layout_width="164dp"
-        android:layout_height="106dp">
-    </ImageView>
-
+        android:layout_width="111dp"
+        android:layout_height="72dp">
+    </ImageButton>
 
 
     <LinearLayout
-        android:background="@drawable/main_page_about_company"
-        android:layout_marginStart="33.5dp"
-        android:layout_marginTop="30dp"
-        android:orientation="vertical"
-        android:layout_width="345dp"
-        android:layout_height="452dp">
+        android:layout_marginTop="10dp"
+        android:background="@color/UpperNavigationBarColor"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
 
-        <TextView
-            android:text="@string/TV_about_company_1"
-            android:textSize="13.3sp"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="9dp"
-            android:layout_width="327dp"
-            android:layout_height="114dp">
-        </TextView>
-        <TextView
-            android:layout_marginTop="14dp"
-            android:layout_marginStart="22.5dp"
-            android:text="@string/TV_about_company_2"
-            android:textSize="13.3sp"
-            android:textColor="@color/black"
-            android:textAlignment="center"
-            android:layout_width="300dp"
-            android:layout_height="76dp">
-        </TextView>
-        <TextView
-            android:layout_marginTop="14dp"
-            android:layout_marginStart="6.5dp"
-            android:text="@string/TV_about_company_3"
-            android:textSize="13.3sp"
-            android:textColor="@color/black"
-            android:textAlignment="center"
-            android:layout_width="332dp"
-            android:layout_height="95dp">
-        </TextView>
-        <TextView
-            android:layout_marginTop="14dp"
-            android:layout_marginStart="23.5dp"
-            android:text="@string/TV_about_company_4"
-            android:textSize="13.3sp"
-            android:textColor="@color/black"
-            android:textAlignment="center"
-            android:layout_width="298dp"
-            android:layout_height="95dp">
-        </TextView>
     </LinearLayout>
 
     <LinearLayout
         android:background="@drawable/app_navigation_bar"
         android:orientation="horizontal"
-        android:layout_marginTop="125dp"
+        android:layout_marginTop="560dp"
         android:layout_width="match_parent"
         android:layout_height="100dp">
 
@@ -80,7 +40,6 @@
             android:layout_height="80dp">
             <ImageButton
                 android:id="@+id/btnCatalog"
-                android:onClick="ONclick_button_Catalog"
                 android:background="@null"
                 android:layout_gravity="center"
                 android:layout_width="50dp"
