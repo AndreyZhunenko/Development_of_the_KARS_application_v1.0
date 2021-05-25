@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 public class CatalogActivity extends Activity {
 
     ImageButton PageCatalogLOGO;
+    ImageButton btn_returnBack;
 
     ImageButton ButtonCatalog;
     ImageButton ButtonShops;
@@ -27,6 +28,10 @@ public class CatalogActivity extends Activity {
         PageCatalogLOGO = findViewById(R.id.CatalogLogo);
         PageCatalogLOGO.setImageResource(R.drawable.main_logo_button);
 
+        btn_returnBack = findViewById(R.id.CatalogButtonReturnBack);
+        btn_returnBack.setImageResource(R.drawable.button_return1);
+
+
         ButtonCatalog = findViewById(R.id.btnCatalog);
         ButtonCatalog.setImageResource(R.drawable.catalog_finish_ready);
 
@@ -40,6 +45,10 @@ public class CatalogActivity extends Activity {
     public void ONclick_button_LOGO(View view){
         Intent ReturnONmainPage = new Intent(CatalogActivity.this, MainActivity.class);
         startActivity(ReturnONmainPage);
+    }
+
+    public void ONclick_button_ReturnBack(View view){
+        btn_returnBack.setImageResource(R.drawable.button_return1_onclick);
     }
 
 

@@ -3,6 +3,12 @@
     <string name="ForButtonCatalog">"Каталог"</string>
     <string name="ForButtonShops">"Магазины"</string>
     <string name="ForButtonPersonalArea">"Личный кабинет"</string>
+
+    <string name="UpperBar_catalogName_1">"КАТАЛОГ"</string>
+    <string name="UpperBar_button_allGoods">"ВСЕ ТОВАРЫ"</string>
+
+
+
     
 
     <string name="TV_about_company_1">
