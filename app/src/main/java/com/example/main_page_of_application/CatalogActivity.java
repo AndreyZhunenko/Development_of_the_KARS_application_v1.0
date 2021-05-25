@@ -11,8 +11,12 @@ import androidx.annotation.Nullable;
 
 public class CatalogActivity extends Activity {
 
+    ImageButton PageCatalogSearch;
     ImageButton PageCatalogLOGO;
+    ImageButton PageCatalogBasket;
+
     ImageButton btn_returnBack;
+
 
     ImageButton ButtonCatalog;
     ImageButton ButtonShops;
@@ -25,11 +29,18 @@ public class CatalogActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catalog);
 
+        PageCatalogSearch = findViewById(R.id.CatalogSearch);
+        PageCatalogSearch.setImageResource(R.drawable.search_1);
+
         PageCatalogLOGO = findViewById(R.id.CatalogLogo);
         PageCatalogLOGO.setImageResource(R.drawable.main_logo_button);
 
+        PageCatalogBasket = findViewById(R.id.CatalogBasket);
+        PageCatalogBasket.setImageResource(R.drawable.basket_1);
+
         btn_returnBack = findViewById(R.id.CatalogButtonReturnBack);
         btn_returnBack.setImageResource(R.drawable.button_return1);
+
 
 
         ButtonCatalog = findViewById(R.id.btnCatalog);

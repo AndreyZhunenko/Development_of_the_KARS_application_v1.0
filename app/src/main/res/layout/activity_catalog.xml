@@ -5,19 +5,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageButton
-        android:id="@+id/CatalogLogo"
-        android:onClick="ONclick_button_LOGO"
-        android:background="@null"
-        android:layout_marginStart="150.5dp"
-        android:layout_marginTop="20dp"
-        android:layout_width="111dp"
-        android:layout_height="72dp">
-    </ImageButton>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="68dp">
+
+        <ImageButton
+            android:id="@+id/CatalogSearch"
+            android:background="@null"
+            android:layout_marginStart="40.5dp"
+            android:layout_marginTop="9dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp">
+        </ImageButton>
+
+        <ImageButton
+            android:id="@+id/CatalogLogo"
+            android:onClick="ONclick_button_LOGO"
+            android:background="@null"
+            android:layout_marginStart="70.5dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="90dp"
+            android:layout_height="58dp">
+        </ImageButton>
+
+        <ImageButton
+            android:id="@+id/CatalogBasket"
+            android:background="@null"
+            android:layout_marginStart="70.5dp"
+            android:layout_marginTop="9dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp">
+        </ImageButton>
+    </LinearLayout>
 
 
     <LinearLayout
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:background="@color/UpperNavigationBarColor"
         android:orientation="horizontal"
         android:layout_width="match_parent"
