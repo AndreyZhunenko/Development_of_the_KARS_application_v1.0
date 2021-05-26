@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:background="@color/MainAppColor"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/Catalog_SearchLogoBasket_layout"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="68dp">
@@ -39,8 +39,9 @@
         </ImageButton>
     </LinearLayout>
 
-
     <LinearLayout
+        android:id="@+id/UpperNavigationBar_id"
+        android:layout_below="@id/Catalog_SearchLogoBasket_layout"
         android:layout_marginTop="5dp"
         android:background="@color/UpperNavigationBarColor"
         android:orientation="horizontal"
@@ -84,18 +85,20 @@
 
     </LinearLayout>
 
+    <ListView
+        android:id="@+id/ListOFcategories_id"
+        android:layout_below="@id/UpperNavigationBar_id"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="570dp">
 
-
-
-
-
-
+    </ListView>
 
 
     <LinearLayout
+        android:layout_alignParentBottom="true"
         android:background="@drawable/app_navigation_bar"
         android:orientation="horizontal"
-        android:layout_marginTop="560dp"
         android:layout_width="match_parent"
         android:layout_height="100dp">
 
@@ -106,21 +109,21 @@
             android:layout_width="70dp"
             android:layout_height="80dp">
             <ImageButton
-                android:id="@+id/btnCatalog"
-                android:background="@null"
-                android:layout_gravity="center"
-                android:layout_width="50dp"
-                android:layout_height="50dp">
-            </ImageButton>
+                    android:id="@+id/btnCatalog"
+                    android:background="@null"
+                    android:layout_gravity="center"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp">
+                </ImageButton>
             <TextView
-                android:text="@string/ForButtonCatalog"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:layout_width="70dp"
-                android:layout_height="30dp">
-            </TextView>
+                    android:text="@string/ForButtonCatalog"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:layout_width="70dp"
+                    android:layout_height="30dp">
+                </TextView>
         </LinearLayout>
 
         <LinearLayout
@@ -130,21 +133,21 @@
             android:layout_width="70dp"
             android:layout_height="80dp">
             <ImageButton
-                android:id="@+id/btnShops"
-                android:background="@null"
-                android:layout_gravity="center"
-                android:layout_width="50dp"
-                android:layout_height="50dp">
-            </ImageButton>
+                    android:id="@+id/btnShops"
+                    android:background="@null"
+                    android:layout_gravity="center"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp">
+                </ImageButton>
             <TextView
-                android:text="@string/ForButtonShops"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:layout_width="70dp"
-                android:layout_height="30dp">
-            </TextView>
+                    android:text="@string/ForButtonShops"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:layout_width="70dp"
+                    android:layout_height="30dp">
+                </TextView>
         </LinearLayout>
 
         <LinearLayout
@@ -154,23 +157,24 @@
             android:layout_width="70dp"
             android:layout_height="80dp">
             <ImageButton
-                android:id="@+id/btnMyProfil"
-                android:background="@null"
-                android:layout_gravity="center"
-                android:layout_width="50dp"
-                android:layout_height="50dp">
-            </ImageButton>
+                    android:id="@+id/btnMyProfil"
+                    android:background="@null"
+                    android:layout_gravity="center"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp">
+                </ImageButton>
             <TextView
-                android:text="@string/ForButtonPersonalArea"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:layout_width="70dp"
-                android:layout_height="30dp">
-            </TextView>
+                    android:text="@string/ForButtonPersonalArea"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:layout_width="70dp"
+                    android:layout_height="30dp">
+                </TextView>
         </LinearLayout>
 
     </LinearLayout>
 
-</LinearLayout>
+
+</RelativeLayout>
