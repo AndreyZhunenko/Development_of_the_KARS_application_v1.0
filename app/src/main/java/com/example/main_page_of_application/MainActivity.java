@@ -7,14 +7,27 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
+import com.android.volley.VolleyError;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
     ImageView LogoCompany;
-
     ImageButton ButtonCatalog;
     ImageButton ButtonShops;
     ImageButton ButtonMyprofil;
+    String UrlAdress = "http://192.168.0.39/get_list_of_categories_from_database.php";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +51,10 @@ public class MainActivity extends AppCompatActivity {
         Intent CatalogIntent = new Intent(MainActivity.this, CatalogActivity.class );
         startActivity(CatalogIntent);
     }
+
+
+
+
 
 
 }

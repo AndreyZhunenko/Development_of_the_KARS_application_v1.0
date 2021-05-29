@@ -65,6 +65,8 @@
         </TextView>
     </LinearLayout>
 
+
+
     <LinearLayout
         android:background="@drawable/app_navigation_bar"
         android:orientation="horizontal"
@@ -146,5 +148,6 @@
         </LinearLayout>
 
     </LinearLayout>
+
 
 </LinearLayout>

@@ -85,6 +85,7 @@
 
     </LinearLayout>
 
+
     <ListView
         android:id="@+id/ListOFcategories_id"
         android:layout_below="@id/UpperNavigationBar_id"
@@ -93,6 +94,8 @@
         android:layout_height="570dp">
 
     </ListView>
+
+
 
 
     <LinearLayout
