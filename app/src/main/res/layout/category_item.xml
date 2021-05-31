@@ -3,15 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/TextView_categoryItem_id"
+    <Button
+        android:id="@+id/Button_categoryItem_id"
         android:background="@drawable/style_of_categories_element"
+        android:onClick="Onclick_itemList"
         android:gravity="center"
         android:textColor="@color/black"
         android:textAlignment="center"
         android:textSize="20sp"
         android:layout_width="match_parent"
         android:layout_height="95dp">
-    </TextView>
+    </Button>
 
 </RelativeLayout>

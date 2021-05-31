@@ -4,10 +4,14 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -30,9 +34,13 @@ public class CatalogActivity extends Activity {
     ImageButton ButtonShops;
     ImageButton ButtonMyprofil;
     ListView ListCategories_of_goods;
+    String firstParent_id = "0";
+    HashMap<String, String> historyRequest = new HashMap<>();
+  //  CategoryListAdapter myAdapter = new CategoryListAdapter();
 
     String UrlAdress = "http://192.168.0.39/get_list_of_categories_from_database.php";
-    JSONObject bodyJson = new JSONObject();
+
+   // ArrayList dataForListAdapter = new ArrayList<>();
 
     @Override
     protected void onCreate( Bundle savedInstanceState) {
@@ -40,13 +48,26 @@ public class CatalogActivity extends Activity {
         setContentView(R.layout.activity_catalog);
 
         ListCategories_of_goods = findViewById(R.id.ListOFcategories_id);
+        JSONObject bodyJson = new JSONObject();
 
         try {
-            bodyJson.put("Priority_1", "0");
-            GetDataFromServer(this);
+            bodyJson.put("Name", "0");
+            NewRequestOnServer myRequest = new NewRequestOnServer(ListCategories_of_goods, UrlAdress, bodyJson, this);
+            myRequest.GetDataFromServer();
+            //firstParent_id = myRequest.OurParentId;
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
+      /* ListCategories_of_goods.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View itemClicked, int position, long id) {
+               Button ourbtn = (Button) itemClicked.findViewById(R.id.Button_categoryItem_id);
+               ourbtn.setText("Кнопка нажата");
+             //  Toast.makeText(getApplicationContext(), ourbtn.getText().toString(), Toast.LENGTH_LONG).show();
+            }
+        });*/
+
 
 
         PageCatalogSearch = findViewById(R.id.CatalogSearch);
@@ -77,58 +98,39 @@ public class CatalogActivity extends Activity {
         startActivity(ReturnONmainPage);
     }
 
-    public void ONclick_button_ReturnBack(View view){
-        btn_returnBack.setImageResource(R.drawable.button_return1_onclick);
-    }
-
-    public void GetDataFromServer(Context ctx){
-        CustomJsonObjectRequest myRequest = new CustomJsonObjectRequest(Request.Method.POST, UrlAdress, bodyJson, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                ArrayList<String> resultCategories = new ArrayList<>();
-                try {
-                    resultCategories = Preparing_data_for_submission(response, "categories", "");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                CategoryListAdapter myAdapter = new CategoryListAdapter(ctx, resultCategories);
-                ListCategories_of_goods.setAdapter(myAdapter);
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
-            }
-        });
-        App.getApp().addToRequestQueue(myRequest);
-        myRequest.setRetryPolicy(new RetryPolicy() {
-            @Override
-            public int getCurrentTimeout() {
-                return 50000;
-            }
-
-            @Override
-            public int getCurrentRetryCount() {
-                return 50000;
-            }
-
-            @Override
-            public void retry(VolleyError error) throws VolleyError {
-            }
-        });
-    }
-
-    public ArrayList Preparing_data_for_submission(JSONObject responseServer, String Parsing1, String Parsing2) throws JSONException {
-        HashMap<String, String> rezultParsing = new HashMap<>();
-        ArrayList<String> DataForSend = new ArrayList<>();
-        Secondary_functions parsingOurData = new Secondary_functions();
-        rezultParsing = parsingOurData.ParsingJSONObject_on_String(responseServer, Parsing1, Parsing2);
-        for (String key: rezultParsing.keySet()){
-            DataForSend.add(rezultParsing.get(key));
+    public void ONclick_button_ReturnBack(View view) throws JSONException {
+     //   btn_returnBack.setImageResource(R.drawable.button_return1_onclick);
+        JSONObject ComebackRequest = new JSONObject();
+        if (firstParent_id.equals("0") ){
+            ComebackRequest.put("Name", historyRequest.get("Name"));
         }
-        return DataForSend;
+        else{
+            ComebackRequest.put("Name", historyRequest.get("Name"));
+            ComebackRequest.put("parent_id", historyRequest.get("parent_id"));
+        }
+
+        NewRequestOnServer myComebackRequest = new NewRequestOnServer(ListCategories_of_goods, UrlAdress, ComebackRequest, this);
+        myComebackRequest.GetDataFromServer();
+       // firstParent_id = myComebackRequest.OurParentId;
     }
 
-
+    public void Onclick_itemList(View onClickView) throws JSONException {
+        Button ourbtn = onClickView.findViewById(R.id.Button_categoryItem_id);
+        //historyRequest.clear();
+        if (firstParent_id.equals("0") ){
+            historyRequest.put("Name", "0");
+        }
+        else{
+            historyRequest.put("Name", ourbtn.getText().toString());
+            historyRequest.put("parent_id", firstParent_id);
+        }
+        //ourbtn.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
+        JSONObject bodyNewRequest = new JSONObject();
+        bodyNewRequest.put("Name", ourbtn.getText().toString());
+        bodyNewRequest.put("parent_id", firstParent_id);
+        NewRequestOnServer myNewRequest = new NewRequestOnServer(ListCategories_of_goods, UrlAdress, bodyNewRequest, this);
+        myNewRequest.GetDataFromServer();
+        firstParent_id = myNewRequest.OurParentId;
+    }
 
 }

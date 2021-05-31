@@ -26,37 +26,54 @@ public class Secondary_functions {
         HashMap<String, String> RezultParsing = new HashMap<>();
         String myKey = "";
         String valueKey = "";
-        JSONArray ourArray = myJson.getJSONArray(nameArray_1);
-        for (int i = 0; i < ourArray.length(); i++){
-            Iterator<?> keys1 = ourArray.getJSONObject(i).keys();
-            while (keys1.hasNext()){
-                String timeKey = (String) keys1.next();
-                valueKey = ourArray.getJSONObject(i).getString(timeKey);
-                if ( timeKey.equals(myKey)){
-                    timeKey += String.valueOf(i);
-                    RezultParsing.put(timeKey, valueKey);
-                }
-                else{
-                    RezultParsing.put(timeKey, valueKey);
-                    myKey = timeKey;
-                }
+
+        if (nameArray_1.isEmpty()){
+            Iterator<?> keys = myJson.keys();
+            while (keys.hasNext()){
+                String timeKey = (String) keys.next();
+                valueKey = myJson.getString(timeKey);
+                RezultParsing.put(timeKey, valueKey);
             }
-            if ( ourArray.getJSONObject(i).has(nameArray_2)){
-                JSONArray childArray = ourArray.getJSONArray(i);
-                for (int k = 0; k < childArray.length(); k++){
-                    Iterator<?>keys2 = childArray.getJSONObject(k).keys();
-                    while (keys2.hasNext()){
-                        String timeKey = (String) keys2.next();
-                        valueKey = childArray.getJSONObject(k).getString(timeKey);
-                        if (timeKey.equals(myKey)){
-                            timeKey += String.valueOf(k);
-                            RezultParsing.put(timeKey, valueKey);
-                        }
-                        else{
-                            RezultParsing.put(timeKey, valueKey);
-                            myKey = timeKey;
+        }
+        else {
+            JSONArray ourArray = myJson.getJSONArray(nameArray_1);
+            for (int i = 0; i < ourArray.length(); i++) {
+                Iterator<?> keys1 = ourArray.getJSONObject(i).keys();
+                while (keys1.hasNext()) {
+                    String timeKey = (String) keys1.next();
+                    valueKey = ourArray.getJSONObject(i).getString(timeKey);
+                    if (timeKey.equals(myKey)) {
+                        timeKey += String.valueOf(i);
+                        RezultParsing.put(timeKey, valueKey);
+                    } else {
+                        RezultParsing.put(timeKey, valueKey);
+                        myKey = timeKey;
+                    }
+                }
+                if (ourArray.getJSONObject(i).has(nameArray_2)) {
+                    JSONArray childArray = ourArray.getJSONArray(i);
+                    for (int k = 0; k < childArray.length(); k++) {
+                        Iterator<?> keys2 = childArray.getJSONObject(k).keys();
+                        while (keys2.hasNext()) {
+                            String timeKey = (String) keys2.next();
+                            valueKey = childArray.getJSONObject(k).getString(timeKey);
+                            if (timeKey.equals(myKey)) {
+                                timeKey += String.valueOf(k);
+                                RezultParsing.put(timeKey, valueKey);
+                            } else {
+                                RezultParsing.put(timeKey, valueKey);
+                                myKey = timeKey;
+                            }
                         }
                     }
+                }
+            }
+            Iterator<?> keys = myJson.keys();
+            while (keys.hasNext()){
+                String timeKey = (String) keys.next();
+                if (timeKey.equals("parent_id")){
+                    valueKey = myJson.getString(timeKey);
+                    RezultParsing.put(timeKey, valueKey);
                 }
             }
         }
