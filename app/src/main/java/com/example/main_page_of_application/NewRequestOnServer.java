@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.ContextMenu;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -28,14 +29,12 @@ public class NewRequestOnServer extends Activity {
 
 
 
-    public NewRequestOnServer( ListView myList, String UrlAdress, JSONObject bodyJson, Context myCTX, int SizeTextItem){ //CategoryListAdapter myAdapter){
+    public NewRequestOnServer( ListView myList, String UrlAdress, JSONObject bodyJson, Context myCTX, int SizeTextItem){
         this.myList = myList;
         this.UrlAdress = UrlAdress;
         this.bodyJson = bodyJson;
         this.myCTX = myCTX;
         this.SizeTextItem = SizeTextItem;
-       // this.OurParentId_old = OurParentId_old;
-        //this.myAdapter = myAdapter;
     }
 
     public void GetDataFromServer(){
@@ -44,7 +43,6 @@ public class NewRequestOnServer extends Activity {
             public void onResponse(JSONObject response) {
 
                 try {
-                    //resultCategories = Preparing_data_for_submission(response, "categories", "");
                     Preparing_data_for_submission(response, "categories", "");
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -78,7 +76,6 @@ public class NewRequestOnServer extends Activity {
 
     public void Preparing_data_for_submission(JSONObject responseServer, String Parsing1, String Parsing2) throws JSONException {
         HashMap<String, String> rezultParsing = new HashMap<>();
-        //ArrayList<String> DataForSend = new ArrayList<>();
         Secondary_functions parsingOurData = new Secondary_functions();
         rezultParsing = parsingOurData.ParsingJSONObject_on_String(responseServer, Parsing1, Parsing2);
         for (String key: rezultParsing.keySet()){
@@ -89,7 +86,6 @@ public class NewRequestOnServer extends Activity {
                 resultCategories.add(rezultParsing.get(key));
             }
         }
-        //return DataForSend;
     }
 
 }

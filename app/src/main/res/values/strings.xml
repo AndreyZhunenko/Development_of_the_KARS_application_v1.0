@@ -6,6 +6,9 @@
 
     <string name="UpperBar_catalogName_1">"КАТАЛОГ"</string>
     <string name="UpperBar_button_allGoods">"ВСЕ ТОВАРЫ"</string>
+    <string name="BasketTitle">"КОРЗИНА"</string>
+    <string name="Button_in_basket_remove">"Удалить"</string>
+    <string name="Button_in_basket_pay">Оформить \n заказ</string>
 
 
 

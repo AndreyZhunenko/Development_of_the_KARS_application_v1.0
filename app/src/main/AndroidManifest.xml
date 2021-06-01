@@ -29,6 +29,10 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:name=".CatalogActivity">
         </activity>
+        <activity
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:name=".UserBasketActivity">
+        </activity>
     </application>
 
 </manifest>

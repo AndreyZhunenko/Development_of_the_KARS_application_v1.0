@@ -36,12 +36,8 @@ public class CatalogActivity extends Activity {
     ImageButton ButtonMyprofil;
     ListView ListCategories_of_goods;
     String firstParent_id = "-1";
-    //HashMap<String, String> historyRequest = new HashMap<>();
-  //  CategoryListAdapter myAdapter = new CategoryListAdapter();
 
     String UrlAdress = "http://192.168.0.39/get_list_of_categories_from_database.php";
-
-   // ArrayList dataForListAdapter = new ArrayList<>();
 
     @Override
     protected void onCreate( Bundle savedInstanceState) {
@@ -92,11 +88,12 @@ public class CatalogActivity extends Activity {
     }
 
     public void ONclick_button_ReturnBack(View view) throws JSONException {
-            btn_returnBack.setImageResource(R.drawable.button_return1_onclick);
+           // btn_returnBack.setImageResource(R.drawable.button_return1_onclick);
             JSONObject ReturnbodyJson = new JSONObject();
             ReturnbodyJson.put("Name", "0");
             NewRequestOnServer myRequestReturn = new NewRequestOnServer(ListCategories_of_goods, UrlAdress, ReturnbodyJson, this, 20);
             myRequestReturn.GetDataFromServer();
+
             firstParent_id = myRequestReturn.OurParentId;
     }
 
@@ -108,6 +105,11 @@ public class CatalogActivity extends Activity {
         NewRequestOnServer myNewRequest = new NewRequestOnServer(ListCategories_of_goods, UrlAdress, bodyNewRequest, this, 18);
         myNewRequest.GetDataFromServer();
         firstParent_id = myNewRequest.OurParentId;
+    }
+
+    public void ONclick_button_Basket(View view){
+        Intent gotoBasketIntent = new Intent(CatalogActivity.this, UserBasketActivity.class);
+        startActivity(gotoBasketIntent);
     }
 
 }

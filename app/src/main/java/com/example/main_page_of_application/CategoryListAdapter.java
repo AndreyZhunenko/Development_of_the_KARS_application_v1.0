@@ -23,7 +23,6 @@ import static android.view.View.TEXT_ALIGNMENT_CENTER;
 public class CategoryListAdapter extends BaseAdapter {
     Context ctx;
     ArrayList<String>categories;
-   // String nowParentId = "";
     int SizeTextItem;
 
 
