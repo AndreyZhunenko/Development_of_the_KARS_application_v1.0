@@ -3,16 +3,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/Button_categoryItem_id"
+    <LinearLayout
         android:background="@drawable/style_of_categories_element"
-        android:onClick="Onclick_itemList"
-        android:gravity="center"
-        android:textColor="@color/black"
-        android:textAlignment="center"
-        android:textSize="20sp"
         android:layout_width="match_parent"
+        android:gravity="center"
         android:layout_height="95dp">
-    </Button>
+        <Button
+            android:background="@null"
+            android:id="@+id/Button_categoryItem_id"
+            android:onClick="Onclick_itemList"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:layout_width="312dp"
+            android:layout_height="95dp">
+        </Button>
+    </LinearLayout>
 
 </RelativeLayout>

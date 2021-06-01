@@ -24,14 +24,16 @@ public class NewRequestOnServer extends Activity {
     CategoryListAdapter myAdapter;
     String OurParentId = "";
     ArrayList resultCategories = new ArrayList<>();
+    int SizeTextItem;
 
 
 
-    public NewRequestOnServer( ListView myList, String UrlAdress, JSONObject bodyJson, Context myCTX){ //CategoryListAdapter myAdapter){
+    public NewRequestOnServer( ListView myList, String UrlAdress, JSONObject bodyJson, Context myCTX, int SizeTextItem){ //CategoryListAdapter myAdapter){
         this.myList = myList;
         this.UrlAdress = UrlAdress;
         this.bodyJson = bodyJson;
         this.myCTX = myCTX;
+        this.SizeTextItem = SizeTextItem;
        // this.OurParentId_old = OurParentId_old;
         //this.myAdapter = myAdapter;
     }
@@ -42,11 +44,12 @@ public class NewRequestOnServer extends Activity {
             public void onResponse(JSONObject response) {
 
                 try {
-                    resultCategories = Preparing_data_for_submission(response, "categories", "");
+                    //resultCategories = Preparing_data_for_submission(response, "categories", "");
+                    Preparing_data_for_submission(response, "categories", "");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                myAdapter = new CategoryListAdapter(myCTX, resultCategories);
+                myAdapter = new CategoryListAdapter(myCTX, resultCategories, SizeTextItem);
                 myList.setAdapter(myAdapter);
             }
         }, new Response.ErrorListener() {
@@ -73,9 +76,9 @@ public class NewRequestOnServer extends Activity {
         });
     }
 
-    public ArrayList Preparing_data_for_submission(JSONObject responseServer, String Parsing1, String Parsing2) throws JSONException {
+    public void Preparing_data_for_submission(JSONObject responseServer, String Parsing1, String Parsing2) throws JSONException {
         HashMap<String, String> rezultParsing = new HashMap<>();
-        ArrayList<String> DataForSend = new ArrayList<>();
+        //ArrayList<String> DataForSend = new ArrayList<>();
         Secondary_functions parsingOurData = new Secondary_functions();
         rezultParsing = parsingOurData.ParsingJSONObject_on_String(responseServer, Parsing1, Parsing2);
         for (String key: rezultParsing.keySet()){
@@ -83,10 +86,10 @@ public class NewRequestOnServer extends Activity {
                 OurParentId = rezultParsing.get(key);
             }
             else{
-                DataForSend.add(rezultParsing.get(key));
+                resultCategories.add(rezultParsing.get(key));
             }
         }
-        return DataForSend;
+        //return DataForSend;
     }
 
 }

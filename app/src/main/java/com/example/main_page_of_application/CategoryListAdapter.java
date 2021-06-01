@@ -1,6 +1,7 @@
 package com.example.main_page_of_application;
 
 import android.content.Context;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,17 +18,19 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import static android.view.View.TEXT_ALIGNMENT_CENTER;
+
 public class CategoryListAdapter extends BaseAdapter {
     Context ctx;
     ArrayList<String>categories;
-    String nowParentId = "";
+   // String nowParentId = "";
+    int SizeTextItem;
 
-   /* public CategoryListAdapter(){
 
-    }*/
-    public CategoryListAdapter(Context ctx, ArrayList<String>categories){
+    public CategoryListAdapter(Context ctx, ArrayList<String>categories, int SizeTextItem){
         this.ctx = ctx;
         this.categories = categories;
+        this.SizeTextItem = SizeTextItem;
     }
 
     @Override
@@ -51,39 +54,9 @@ public class CategoryListAdapter extends BaseAdapter {
         convertView = LayoutInflater.from(ctx).inflate(R.layout.category_item, parent, false);
         Button NameOFcategory = convertView.findViewById(R.id.Button_categoryItem_id);
 
+        NameOFcategory.setTextSize(TypedValue.COMPLEX_UNIT_SP, SizeTextItem);
+        NameOFcategory.setTextAlignment(TEXT_ALIGNMENT_CENTER);
         NameOFcategory.setText(ValueCategory);
-
-
-        //JSONObject bodyRequest = new JSONObject();
-        //CatalogActivity myActivity = new CatalogActivity();
-
-
-       /* NameOFcategory.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                myActivity.ListCategories_of_goods.setAdapter(null);
-               /* try {
-                    if (nowParentId.isEmpty()){
-                        bodyRequest.put("Name", NameOFcategory.getText().toString());
-                        bodyRequest.put("parent_id", myActivity.firstParent_id);
-                        NewRequestOnServer new_request = new NewRequestOnServer(myActivity.ListCategories_of_goods, myActivity.UrlAdress, bodyRequest, ctx);
-                        new_request.GetDataFromServer();
-                        nowParentId = new_request.OurParentId;
-                    }
-                    else{
-                        bodyRequest.put("Name", NameOFcategory.getText().toString());
-                        bodyRequest.put("parent_id", nowParentId);
-                        NewRequestOnServer new_request = new NewRequestOnServer(myActivity.ListCategories_of_goods, myActivity.UrlAdress, bodyRequest, ctx);
-                        new_request.GetDataFromServer();
-                        nowParentId = new_request.OurParentId;
-                    }
-
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }*/
-            //}
-        //});*/
 
         return convertView;
     }
