@@ -2,17 +2,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/MainAppColor"
+    android:background="@color/FonColor"
     android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/LogoCompanyID"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="124dp"
-        android:layout_width="164dp"
-        android:layout_height="106dp">
-    </ImageView>
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:background="@color/MainAppColor"
+        android:layout_width="match_parent"
+        android:layout_height="106dp">
+
+        <ImageView
+            android:id="@+id/LogoCompanyID"
+            android:layout_marginStart="124dp"
+            android:layout_width="164dp"
+            android:layout_height="106dp">
+        </ImageView>
+
+    </LinearLayout>
 
 
     <LinearLayout
@@ -27,7 +35,7 @@
             android:text="@string/TV_about_company_1"
             android:textSize="13.3sp"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="@color/TextColorApp"
             android:layout_marginTop="16dp"
             android:layout_marginStart="9dp"
             android:layout_width="327dp"
@@ -38,7 +46,7 @@
             android:layout_marginStart="22.5dp"
             android:text="@string/TV_about_company_2"
             android:textSize="13.3sp"
-            android:textColor="@color/black"
+            android:textColor="@color/TextColorApp"
             android:textAlignment="center"
             android:layout_width="300dp"
             android:layout_height="76dp">
@@ -48,7 +56,7 @@
             android:layout_marginStart="6.5dp"
             android:text="@string/TV_about_company_3"
             android:textSize="13.3sp"
-            android:textColor="@color/black"
+            android:textColor="@color/TextColorApp"
             android:textAlignment="center"
             android:layout_width="332dp"
             android:layout_height="95dp">
@@ -58,12 +66,14 @@
             android:layout_marginStart="23.5dp"
             android:text="@string/TV_about_company_4"
             android:textSize="13.3sp"
-            android:textColor="@color/black"
+            android:textColor="@color/TextColorApp"
             android:textAlignment="center"
             android:layout_width="298dp"
             android:layout_height="95dp">
         </TextView>
+
     </LinearLayout>
+
 
 
 
@@ -93,7 +103,7 @@
                 android:textSize="12sp"
                 android:textStyle="bold"
                 android:textAlignment="center"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:layout_width="70dp"
                 android:layout_height="30dp">
             </TextView>
@@ -117,7 +127,7 @@
                 android:textSize="12sp"
                 android:textStyle="bold"
                 android:textAlignment="center"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:layout_width="70dp"
                 android:layout_height="30dp">
             </TextView>
@@ -141,7 +151,7 @@
                 android:textSize="12sp"
                 android:textStyle="bold"
                 android:textAlignment="center"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:layout_width="70dp"
                 android:layout_height="30dp">
             </TextView>

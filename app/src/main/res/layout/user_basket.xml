@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@color/MainAppColor"
+    android:background="@color/FonColor"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -23,7 +23,7 @@
         android:gravity="center"
         android:text="@string/BasketTitle"
         android:textSize="27sp"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:layout_width="380dp"
         android:layout_height="45dp">
     </TextView>
@@ -71,7 +71,7 @@
     </LinearLayout>
 
 
-
+`
 
 
     <LinearLayout
@@ -100,7 +100,7 @@
                 android:textSize="12sp"
                 android:textStyle="bold"
                 android:textAlignment="center"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:layout_width="70dp"
                 android:layout_height="30dp">
             </TextView>
@@ -124,7 +124,7 @@
                 android:textSize="12sp"
                 android:textStyle="bold"
                 android:textAlignment="center"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:layout_width="70dp"
                 android:layout_height="30dp">
             </TextView>
@@ -148,7 +148,7 @@
                 android:textSize="12sp"
                 android:textStyle="bold"
                 android:textAlignment="center"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:layout_width="70dp"
                 android:layout_height="30dp">
             </TextView>

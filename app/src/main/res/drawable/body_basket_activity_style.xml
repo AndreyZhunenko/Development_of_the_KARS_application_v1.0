@@ -4,7 +4,7 @@
         <shape
             android:shape="rectangle">
             <corners android:radius="25dp"/>
-            <solid android:color="@color/NavigationBarColor"/>
+            <solid android:color="@color/MainPageAboutCompany"/>
         </shape>
     </item>
 </selector>

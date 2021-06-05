@@ -38,7 +38,8 @@ public class NewRequestOnServer extends Activity {
     }
 
     public void GetDataFromServer(){
-        CustomJsonObjectRequest myRequest = new CustomJsonObjectRequest(Request.Method.POST, UrlAdress, bodyJson, new Response.Listener<JSONObject>() {
+        CustomJsonObjectRequest myRequest = new CustomJsonObjectRequest(Request.Method.POST, UrlAdress, bodyJson,
+                new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
 
@@ -47,6 +48,7 @@ public class NewRequestOnServer extends Activity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+
                 myAdapter = new CategoryListAdapter(myCTX, resultCategories, SizeTextItem);
                 myList.setAdapter(myAdapter);
             }
@@ -87,5 +89,7 @@ public class NewRequestOnServer extends Activity {
             }
         }
     }
+
+
 
 }

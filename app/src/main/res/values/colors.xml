@@ -8,9 +8,14 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="MainAppColor">#C0B762</color>
-    <color name="MainPageAboutCompany">#ADD8E6</color>
-    <color name="NavigationBarColor">#B4D3CA</color>
+    <color name="MainAppColor">#FF6600</color>
+    <color name="FonColor">#FFFFFF</color>
+    <color name="MainPageAboutCompany">#EBEBEB</color>
+    <color name="NavigationBarColor">#717171</color>
+    <color name="TextColorApp">#333333</color>
+
+
+
     <color name="UpperNavigationBarColor">#3B3E40</color>
     <color name="ListCategories_itemColor">#B4D3CA</color>
 </resources>
