@@ -36,8 +36,11 @@ public class CatalogActivity extends Activity {
     ImageButton ButtonMyprofil;
     ListView ListCategories_of_goods;
     String firstParent_id = "-1";
+    TextView tvCountSlech;
+    TextView tvError;
 
-    String UrlAdress = "http://192.168.0.39/get_list_of_categories_from_database.php";
+
+    String UrlAdress = "http://192.168.0.39/get_list_of_data_for_catalog_of_application.php";
 
     @Override
     protected void onCreate( Bundle savedInstanceState) {
@@ -45,13 +48,16 @@ public class CatalogActivity extends Activity {
         setContentView(R.layout.activity_catalog);
 
         ListCategories_of_goods = findViewById(R.id.ListOFcategories_id);
+        tvCountSlech = findViewById(R.id.CountSlesh_id);
+        tvError = findViewById(R.id.ErrorRequest_id);
+
         JSONObject bodyJson = new JSONObject();
         if (firstParent_id.equals("-1")){
             try {
                 bodyJson.put("Name", "0");
                 NewRequestOnServer myRequest = new NewRequestOnServer(ListCategories_of_goods, UrlAdress, bodyJson, this, 20);
-                myRequest.GetDataFromServer();
-                firstParent_id = myRequest.OurParentId;
+                myRequest.GetDataFromServer(tvCountSlech, tvError);
+                firstParent_id = "0";
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -88,24 +94,22 @@ public class CatalogActivity extends Activity {
     }
 
     public void ONclick_button_ReturnBack(View view) throws JSONException {
-           // btn_returnBack.setImageResource(R.drawable.button_return1_onclick);
-            JSONObject ReturnbodyJson = new JSONObject();
-            ReturnbodyJson.put("Name", "0");
-            NewRequestOnServer myRequestReturn = new NewRequestOnServer(ListCategories_of_goods, UrlAdress, ReturnbodyJson, this, 20);
-            myRequestReturn.GetDataFromServer();
-
-            firstParent_id = myRequestReturn.OurParentId;
+        JSONObject ReturnbodyJson = new JSONObject();
+        ReturnbodyJson.put("Name", "0");
+        NewRequestOnServer myRequestReturn = new NewRequestOnServer(ListCategories_of_goods, UrlAdress, ReturnbodyJson, this, 20);
+        myRequestReturn.GetDataFromServer(tvCountSlech, tvError);
     }
 
     public void Onclick_itemList(View onClickView) throws JSONException {
         Button ourbtn = onClickView.findViewById(R.id.Button_categoryItem_id);
         JSONObject bodyNewRequest = new JSONObject();
         bodyNewRequest.put("Name", ourbtn.getText().toString());
-        bodyNewRequest.put("parent_id", firstParent_id);
+        bodyNewRequest.put("CountSlesh", tvCountSlech.getText().toString());
         NewRequestOnServer myNewRequest = new NewRequestOnServer(ListCategories_of_goods, UrlAdress, bodyNewRequest, this, 18);
-        myNewRequest.GetDataFromServer();
-        firstParent_id = myNewRequest.OurParentId;
+        myNewRequest.GetDataFromServer(tvCountSlech, tvError);
     }
+
+
 
     public void ONclick_button_Basket(View view){
         Intent gotoBasketIntent = new Intent(CatalogActivity.this, UserBasketActivity.class);

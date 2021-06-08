@@ -9,11 +9,27 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="68dp">
+        <TextView
+            android:id="@+id/CountSlesh_id"
+            android:textColor="@color/white"
+            android:textSize="2sp"
+            android:background="@color/white"
+            android:layout_width="3dp"
+            android:layout_height="3dp">
+        </TextView>
+        <TextView
+            android:id="@+id/ErrorRequest_id"
+            android:textColor="@color/white"
+            android:textSize="2sp"
+            android:background="@color/white"
+            android:layout_width="3dp"
+            android:layout_height="3dp">
+        </TextView>
 
         <ImageButton
             android:id="@+id/CatalogSearch"
             android:background="@null"
-            android:layout_marginStart="40.5dp"
+            android:layout_marginStart="34.5dp"
             android:layout_marginTop="9dp"
             android:layout_width="50dp"
             android:layout_height="50dp">

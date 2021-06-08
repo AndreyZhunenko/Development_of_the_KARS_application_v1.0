@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.ContextMenu;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -23,7 +24,6 @@ public class NewRequestOnServer extends Activity {
     String UrlAdress;
     JSONObject bodyJson;
     CategoryListAdapter myAdapter;
-    String OurParentId = "";
     ArrayList resultCategories = new ArrayList<>();
     int SizeTextItem;
 
@@ -37,26 +37,30 @@ public class NewRequestOnServer extends Activity {
         this.SizeTextItem = SizeTextItem;
     }
 
-    public void GetDataFromServer(){
+    public void GetDataFromServer(TextView tvCountSlesh, TextView tvError){
         CustomJsonObjectRequest myRequest = new CustomJsonObjectRequest(Request.Method.POST, UrlAdress, bodyJson,
                 new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-
-                try {
-                    Preparing_data_for_submission(response, "categories", "");
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                Category_of_goods myListCategories;
+                Secondary_functions parsingJson = new Secondary_functions();
+                myListCategories = parsingJson.Parsing_JSONObject_on_string(response);
+                resultCategories = myListCategories.categories;
+                tvCountSlesh.setText(myListCategories.CountSlesh);
+                tvError.setText(myListCategories.Error);
+                if (tvError.getText().toString().equals("-1")){
+                    Toast.makeText(myCTX, "Not faund!", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    myAdapter = new CategoryListAdapter(myCTX, resultCategories, SizeTextItem);
+                    myList.setAdapter(myAdapter);
                 }
 
-                myAdapter = new CategoryListAdapter(myCTX, resultCategories, SizeTextItem);
-                myList.setAdapter(myAdapter);
+
             }
         }, new Response.ErrorListener() {
             @Override
-            public void onErrorResponse(VolleyError error) {
-
-            }
+            public void onErrorResponse(VolleyError error) {}
         });
         App.getApp().addToRequestQueue(myRequest);
         myRequest.setRetryPolicy(new RetryPolicy() {
@@ -74,20 +78,6 @@ public class NewRequestOnServer extends Activity {
             public void retry(VolleyError error) throws VolleyError {
             }
         });
-    }
-
-    public void Preparing_data_for_submission(JSONObject responseServer, String Parsing1, String Parsing2) throws JSONException {
-        HashMap<String, String> rezultParsing = new HashMap<>();
-        Secondary_functions parsingOurData = new Secondary_functions();
-        rezultParsing = parsingOurData.ParsingJSONObject_on_String(responseServer, Parsing1, Parsing2);
-        for (String key: rezultParsing.keySet()){
-            if ( key.equals("parent_id") ){
-                OurParentId = rezultParsing.get(key);
-            }
-            else{
-                resultCategories.add(rezultParsing.get(key));
-            }
-        }
     }
 
 
