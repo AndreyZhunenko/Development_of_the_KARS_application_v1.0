@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Category_of_goods {
     String CountSlesh = "";
     String Error = "";
+    String id = "";
     ArrayList<String> categories = new ArrayList<>();
 
     public Category_of_goods(){}

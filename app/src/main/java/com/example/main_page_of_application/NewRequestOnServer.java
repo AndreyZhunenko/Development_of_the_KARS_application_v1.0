@@ -2,6 +2,7 @@ package com.example.main_page_of_application;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.ContextMenu;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -18,7 +19,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class NewRequestOnServer extends Activity {
+public class NewRequestOnServer extends Activity{
     Context myCTX;
     ListView myList;
     String UrlAdress;
@@ -38,6 +39,7 @@ public class NewRequestOnServer extends Activity {
     }
 
     public void GetDataFromServer(TextView tvCountSlesh, TextView tvError){
+
         CustomJsonObjectRequest myRequest = new CustomJsonObjectRequest(Request.Method.POST, UrlAdress, bodyJson,
                 new Response.Listener<JSONObject>() {
             @Override
@@ -48,15 +50,15 @@ public class NewRequestOnServer extends Activity {
                 resultCategories = myListCategories.categories;
                 tvCountSlesh.setText(myListCategories.CountSlesh);
                 tvError.setText(myListCategories.Error);
-                if (tvError.getText().toString().equals("-1")){
-                    Toast.makeText(myCTX, "Not faund!", Toast.LENGTH_SHORT).show();
-                }
-                else{
+                if ( !tvError.getText().toString().equals("-1") ){
                     myAdapter = new CategoryListAdapter(myCTX, resultCategories, SizeTextItem);
                     myList.setAdapter(myAdapter);
                 }
-
-
+                else{
+                    tvError.setText(myListCategories.id);
+                    Intent GoToNewActivity = new Intent(myCTX, ListOfGoodsActivity.class);
+                    myCTX.startActivity(GoToNewActivity);
+                }
             }
         }, new Response.ErrorListener() {
             @Override
@@ -78,7 +80,9 @@ public class NewRequestOnServer extends Activity {
             public void retry(VolleyError error) throws VolleyError {
             }
         });
+
     }
+
 
 
 

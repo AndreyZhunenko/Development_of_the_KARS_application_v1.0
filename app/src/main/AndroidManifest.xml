@@ -33,6 +33,10 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:name=".UserBasketActivity">
         </activity>
+        <activity
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:name=".ListOfGoodsActivity">
+        </activity>
     </application>
 
 </manifest>

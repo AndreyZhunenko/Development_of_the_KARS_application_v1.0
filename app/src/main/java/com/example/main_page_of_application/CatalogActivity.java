@@ -63,8 +63,6 @@ public class CatalogActivity extends Activity {
             }
         }
 
-
-
         PageCatalogSearch = findViewById(R.id.CatalogSearch);
         PageCatalogSearch.setImageResource(R.drawable.search_1);
 
@@ -109,11 +107,11 @@ public class CatalogActivity extends Activity {
         myNewRequest.GetDataFromServer(tvCountSlech, tvError);
     }
 
-
-
     public void ONclick_button_Basket(View view){
         Intent gotoBasketIntent = new Intent(CatalogActivity.this, UserBasketActivity.class);
         startActivity(gotoBasketIntent);
     }
 
 }
+
+

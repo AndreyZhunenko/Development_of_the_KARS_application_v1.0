@@ -1,6 +1,7 @@
 package com.example.main_page_of_application;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,13 +50,13 @@ public class CategoryListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        String ValueCategory = categories.get(position);
-        convertView = LayoutInflater.from(ctx).inflate(R.layout.category_item, parent, false);
-        Button NameOFcategory = convertView.findViewById(R.id.Button_categoryItem_id);
+            String ValueCategory = categories.get(position);
+            convertView = LayoutInflater.from(ctx).inflate(R.layout.category_item, parent, false);
+            Button NameOFcategory = convertView.findViewById(R.id.Button_categoryItem_id);
 
-        NameOFcategory.setTextSize(TypedValue.COMPLEX_UNIT_SP, SizeTextItem);
-        NameOFcategory.setTextAlignment(TEXT_ALIGNMENT_CENTER);
-        NameOFcategory.setText(ValueCategory);
+            NameOFcategory.setTextSize(TypedValue.COMPLEX_UNIT_SP, SizeTextItem);
+            NameOFcategory.setTextAlignment(TEXT_ALIGNMENT_CENTER);
+            NameOFcategory.setText(ValueCategory);
 
         return convertView;
     }
