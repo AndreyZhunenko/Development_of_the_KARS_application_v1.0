@@ -26,7 +26,7 @@ public class Secondary_functions {
 
       String str_my_json = "";
 
-   public Category_of_goods Parsing_JSONObject_on_string(JSONObject my_json){
+   public Category_of_goods ParsingCategories_json_on_string(JSONObject my_json){
 
       Category_of_goods myList = new Category_of_goods();
 
@@ -43,6 +43,19 @@ public class Secondary_functions {
    }
 
 
+   public Array_of_goods ParsingGoods_json_on_string(JSONObject my_json){
+      Array_of_goods myProducts = new Array_of_goods();
 
+      if (my_json != null){
+         str_my_json = my_json.toString();
+
+         GsonBuilder mybuilder = new GsonBuilder();
+         Gson myGson = mybuilder.create();
+         myProducts = myGson.fromJson(str_my_json, Array_of_goods.class);
+
+      }
+
+      return myProducts;
+   }
 
 }

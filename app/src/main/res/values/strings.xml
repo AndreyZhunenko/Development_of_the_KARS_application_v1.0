@@ -10,6 +10,8 @@
     <string name="Button_in_basket_remove">"Удалить"</string>
     <string name="Button_in_basket_pay">Оформить \n заказ</string>
 
+    <string name="ElementOfListGoods_TextView_price">"Цена:"</string>
+
 
 
     
